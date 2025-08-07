@@ -1,0 +1,33 @@
+[
+  {
+    "type": "dialog",
+    "bg": "bg-office.jpg",
+    "left": "dick1.png",
+    "text": "Ah, du bist also der Neue. Willkommen im Büro von Dick Cunse."
+  },
+  {
+    "type": "dialog",
+    "left": "dick2.png",
+    "text": "Bevor wir starten – eine kleine Einstiegsfrage..."
+  },
+  {
+    "type": "quiz",
+    "question": "Was ergibt 2 + 2?",
+    "choices": [
+      { "text": "3", "correct": false, "goto": 4 },
+      { "text": "4", "correct": true },
+      { "text": "5", "correct": false, "goto": 4 },
+      { "text": "22", "correct": false, "goto": 4 }
+    ]
+  },
+  {
+    "type": "dialog",
+    "left": "dick1.png",
+    "text": "Richtig! Du bist ja ein echtes Mathegenie."
+  },
+  {
+    "type": "dialog",
+    "left": "dick2.png",
+    "text": "Falsch. Das hätte ich dir zugetraut…"
+  }
+]

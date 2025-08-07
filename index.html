@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dick Cunse und das verfluchte Semester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="story-box">
+      <h1>Arbeitstitel</h1>
+      <p>
+        Du bist Informatikstudent an der Ostfalia. Schon wieder sind die Semestergebühren gestiegen und dein Konto ist leer.
+        In deiner Verzweiflung bewirbst du dich bei einem skurrilen Privatdetektiv namens <strong>Dick Cunse</strong>.<br>
+        Kaum im Dienst, steht ihr schon vor eurem ersten Fall: Ein verfluchtes Haus. Ein toter Informatiker. Ein dunkles Geheimnis.
+        Nur mit klarem Verstand kannst du dem Geheimnis auf die Spur kommen … und dein Studium retten.
+      </p>
+    </div>
+
+    <div class="start-box">
+      <label for="nameInput">Dein Name:</label><br>
+      <input type="text" id="nameInput" placeholder="z.B. Max"><br>
+      <button onclick="startGame()">Spiel starten</button>
+    </div>
+
+  </div>
+
+<div class="blitz-top-right"></div>
+<div class="blitz-mid-left"></div>
+
+
+  <script>
+    function startGame() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name === "") {
+        alert("Bitte gib deinen Namen ein.");
+        return;
+      }
+      localStorage.setItem("spielName", name);
+      window.location.href = "levels/level1.html";
+    }
+    function triggerBlitz(blitzEl, minDelay = 2000, maxDelay = 4000) {
+  const duration = Math.random() * 100 + 80;
+  blitzEl.style.opacity = '1';
+  setTimeout(() => {
+    blitzEl.style.opacity = '0';
+  }, duration);
+
+  const next = Math.random() * (maxDelay - minDelay) + minDelay;
+  setTimeout(() => triggerBlitz(blitzEl, minDelay, maxDelay), next);
+}
+
+const topRightBlitz = document.querySelector('.blitz-top-right');
+const midLeftBlitz = document.querySelector('.blitz-mid-left');
+
+triggerBlitz(topRightBlitz);
+triggerBlitz(midLeftBlitz);
+  </script>
+</body>
+</html>

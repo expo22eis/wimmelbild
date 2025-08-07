@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 1 – Dick Cunse spricht</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #scene {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .character {
+      position: absolute;
+      bottom: 0;
+      max-height: 90%;
+      transition: opacity 0.3s ease;
+    }
+
+    .left {
+      left: 5%;
+    }
+
+    .right {
+      right: 5%;
+    }
+
+    .dialogue-box {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scene">
+    <img id="leftCharacter" class="character left" src="">
+    <img id="rightCharacter" class="character right" src="">
+    <div id="dialogueBox" class="dialogue-box"></div>
+  </div>
+
+  <script id="dialogData" type="application/json">
+[
+  {
+    "id": "intro1",
+    "type": "dialog",
+    "bg": "office.png",
+    "left": "dick_pose2.png",
+    "leftAnimation": true,
+    "text": "Sei gegrüßt und willkommen in meinem bescheidenen Büro. Mein Name ist <span style='color:#f5c842;'>Dick Cunse</span>. Aber meine Freunde nennen mich <span style='color:#f5c842;'>Dick Cunse</span>.",
+    "next": "intro2"
+  },
+  {
+    "id": "intro2",
+    "type": "dialog",
+    "bg": "office.png",
+    "left": "dick_pose2.png",
+    "text": "Nun. Du behauptest also, Informatik an der <span style='color:#0064de;'>Ostfalia</span> zu studieren...<br> Das habe ich auch mal. Du bist mir direkt symphatisch.",
+    "next": "intro3"
+  },
+  {
+    "id": "intro3",
+    "type": "dialog",
+    "left": "dick_pose1.png",
+    "text": "Aber sehen wir doch mal, ob du auch die Person bist, die du behauptest zu sein...",
+    "next": "quiz1"
+  },
+  {
+  "id": "quiz1",
+  "type": "quiz",
+  "left": "dick_pose1.png",
+  "question": "Was wird durch den folgenden Java-Code ausgegeben?<br><div class='code-block'>int x = 5;<br>int y = x++;<br>System.out.println(y);</div>",
+  "choices": [
+    { "text": "6", "goto": "falsch" },
+    { "text": "4", "goto": "falsch" },
+    { "text": "5", "goto": "richtig" },
+    { "text": "22", "goto": "falsch" }
+  ]
+}
+,
+  {
+    "id": "falsch",
+    "type": "dialog",
+    "left": "dick_pose3.png",
+    "text": "Hm. Versuche es lieber nochmal...",
+    "next": "quiz1"
+  },
+  {
+    "id": "richtig",
+    "type": "dialog",
+    "left": "dick_pose2.png",
+    "text": "Richtig! Ich sehe, du sprichst die Wahrheit.",
+    "next": "intro4"
+  },
+  {
+    "id": "intro4",
+    "type": "dialog",
+    "left": "dick_pose2.png",
+    "text": "Bei dir habe ich ein gutes Gefühl, du hast den Job. Jemand mit deinen Fähigkeiten wird mir noch sehr nützlich sein.",
+    "next": "intro5"
+  },
+  {
+    "id": "intro5",
+    "type": "dialog",
+    "left": "dick_pose1.png",
+    "text": "Dann reden wir mal über deine Bezahlung. Du wirst sicher verstehen, dass ein Büro wie dieses nicht sonderlich billig ist...",
+    "next": "intro6"
+  },
+  {
+    "id": "intro6",
+    "type": "dialog",
+    "left": "dick_surprised.png",
+    "text": "Was zum?",
+    "effect": {
+    "type": "shake",
+    "repeat": false
+  },
+    "next": "intro7"
+  },
+  {
+    "id": "intro7",
+    "type": "dialog",
+    "left": "dick_surprised.png",
+    "right": "sophie_desperate.png",
+    "text": "Mister Cunse, ich brauche dringend ihre Hilfe. In meinem Haus spukt es. Laut Google sind Sie der beste und einzige Detektiv für übernatürliche Datenstrukturen.",
+    "rightAnimation": true,
+    "effect": {
+    "type": "shake",
+    "repeat": false
+  },
+    "next": "intro8"
+  },
+  {
+    "id": "intro8",
+    "type": "dialog",
+    "left": "dick_serious.png",
+    "right": "sophie_desperate.png",
+    "text": "Ganz ruhig, gnädige Dame. Fangen Sie von ganz vorne an. Mein junger Kollege und ich hören Ihnen zu.",
+    "next": "intro9"
+  },
+  {
+    "id": "intro9",
+    "type": "dialog",
+    "left": "dick_serious.png",
+    "right": "sophie_pose1.png",
+    "text": "Schon gut. Mein Name ist <span style='color:#ed2700;'>Sophie Supersoaker</span>. Mein Onkel ist kürzlich verstorben und ich habe sein altes Herrenhaus geerbt. Erst war alles gut, es ist zwar etwas einsam gelegen, aber groß und elegant eingerichtet. Nach ein paar Tagen fing es jedoch an...",
+    "next": "intro10"
+  },
+  {
+    "id": "intro10",
+    "type": "dialog",
+    "left": "dick_serious.png",
+    "right": "sophie_desperate.png",
+    "text": "Ich habe nachts seltsame Geräusche gehört. Solche, wie sie beim Tippen auf einer Tastatur entstehen. Dann waren da auch noch Stimmen, die sich über seltsame Compilerfehler beschwert haben.",
+    "next": "intro11"
+  },
+  {
+    "id": "intro11",
+    "type": "dialog",
+    "left": "dick_serious.png",
+    "right": "sophie_serious.png",
+    "text": "Eines Morgens bin ich aufgewacht und habe das hier an meinen Monitor geklebt gefunden...",
+    "next": "intro12"
+  },
+  {
+    "id": "intro12",
+    "type": "dialog",
+    "left": "dick_serious.png",
+    "right": "sophie_serious.png",
+    "focusImage": "sheet1.png",
+    "text": "Äußerst mysteriös. Junger Kollege, was sagst du zu diesem vergilbten Zettel?",
+    "next": "quiz_static_error_start"
+  },
+  {
+  "id": "quiz_static_error_start",
+  "type": "quiz",
+  "focusImage": "sheet1.png",
+  "question": "Was verursacht in dem Code einen Compilerfehler?",
+  "choices": [
+    {
+      "text": "Die Methode add(String, String) ist nicht static, kann also nicht in main aufgerufen werden",
+      "goto": "quiz_static_error_path1"
+    },
+    {
+      "text": "Die Methode gibt einen falschen Rückgabetyp zurück",
+      "goto": "quiz_static_error_path2"
+    },
+    {
+      "text": "Methodenüberladung mit unterschiedlichen Rückgabetypen ist in Java nicht erlaubt",
+      "goto": "quiz_static_error_wrong"
+    },
+    {
+      "text": "Der Code kompiliert fehlerfrei",
+      "goto": "quiz_static_error_wrong"
+    }
+  ]
+},
+{
+  "id": "quiz_static_error_path1",
+  "type": "quiz",
+  "focusImage": "sheet1.png",
+  "question": "Sehr gut erkannt! Und was ist ein weiterer Fehler in diesem Code?",
+  "choices": [
+    {
+      "text": "Die Methode gibt einen falschen Rückgabetyp zurück",
+      "goto": "quiz_static_error_correct_final"
+    },
+    {
+      "text": "Methodenüberladung mit unterschiedlichen Rückgabetypen ist in Java nicht erlaubt",
+      "goto": "quiz_static_error_wrong"
+    },
+    {
+      "text": "Java erlaubt keine Methoden mit gleichen Namen",
+      "goto": "quiz_static_error_wrong"
+    }
+  ]
+},
+{
+  "id": "quiz_static_error_path2",
+  "type": "quiz",
+  "focusImage": "sheet1.png",
+  "question": "Das war schonmal korrekt. Aber es gibt noch einen weiteren Fehler. Welcher ist das?",
+  "choices": [
+    {
+      "text": "Die Methode add(String, String) ist nicht static, kann also nicht in main aufgerufen werden",
+      "goto": "quiz_static_error_correct_final"
+    },
+    {
+      "text": "Methodenüberladung mit unterschiedlichen Rückgabetypen ist in Java nicht erlaubt",
+      "goto": "quiz_static_error_wrong"
+    },
+    {
+      "text": "Java erlaubt keine Methoden mit gleichen Namen",
+      "goto": "quiz_static_error_wrong"
+    }
+  ]
+},
+{
+  "id": "quiz_static_error_wrong",
+  "type": "dialog",
+  "focusImage": "sheet1.png",
+  "text": "Das war leider nicht korrekt. Versuche es nochmal.",
+  "next": "quiz_static_error_start"
+},
+{
+  "id": "quiz_static_error_correct_final",
+  "type": "dialog",
+  "focusImage": "sheet1.png",
+  "text": "Sehr gut! ChatGPT, ähh, mein geschulter Verstand, sieht es genau so wie du. Also gibt es in diesem Code zwei Fehler.",
+  "next": "intro13"
+},
+{
+  "id": "intro13",
+  "type": "dialog",
+  "left": "dick_pose1.png",
+  "right": "sophie_friendly.png",
+  "text": "Gnädige Frau, wir nehmen uns ihrem Fall an. Sorgen Sie sich nicht.",
+  "next": "intro14"
+},
+{
+  "id": "intro14",
+  "type": "dialog",
+  "left": "dick_pose1.png",
+  "right": "sophie_friendly.png",
+  "text": "Ich danke ihnen beiden vielmals. Ich bin zuversichtlich, dass sie das schaffen.",
+  "next": "end"
+},
+  {
+    "id": "end",
+    "type": "end",
+    "text": "Du hast Level 1 abgeschlossen.",
+    "button": {
+      "text": "Weiter zu Level 2",
+      "href": "level2.html"
+    }
+  }
+]
+
+</script>
+
+  <script src="level.js"></script>
+</body>
+</html>
