@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 2 - Das verfluchte Haus</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #scene {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .character {
+      position: absolute;
+      bottom: 0;
+      max-height: 90%;
+      transition: opacity 0.3s ease;
+    }
+
+    .left {
+      left: 5%;
+    }
+
+    .right {
+      right: 5%;
+    }
+
+    .dialogue-box {
+      position: absolute;
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scene">
+    <img id="leftCharacter" class="character left" src="">
+    <img id="rightCharacter" class="character right" src="">
+    <div id="dialogueBox" class="dialogue-box"></div>
+  </div>
+  <div id="corner-glow"></div>
+
+
+  <script id="dialogData" type="application/json">
+[
+  {
+    "id": "intro1",
+    "type": "dialog",
+    "bg": "mansion_panorama.png",
+    "left": "",
+    "text": "Nach einer langen Fahrt, mitten ins Nirgendwo, kommt ihr am besagten, verfluchten Ort an...",
+    "next": "intro2"
+  },
+  {
+    "id": "intro2",
+    "type": "dialog",
+    "bg": "mansion_panorama.png",
+    "leftAnimation": true,
+    "rightAnimation": true,
+    "left": "dick_pose1.png",
+    "right": "sophie_friendly.png",
+    "text": "Das ist aber ein ziemlich großes Haus, was Sie da geerbt haben.",
+    "next": "intro3"
+  },
+  {
+    "id": "intro3",
+    "type": "dialog",
+    "bg": "mansion_panorama.png",
+    "text": "Nun ja, mein Onkel war Informatikprofessor und hat Java-Bücher geschrieben.",
+    "next": "intro4"
+  },
+  {
+    "id": "intro4",
+    "type": "dialog",
+    "bg": "mansion_panorama.png",
+    "text": "Verstehe. Nun, dann wollen wir mal eintreten...",
+    "next": "intro5"
+  },
+  {
+    "id": "intro5",
+    "type": "dialog",
+    "bg": "mansion_panorama.png",
+    "left": "dick_surprised.png",
+    "right": "sophie_pose1.png",
+    "text": "Verstehe. Nun, dann wollen wir mal eintreten...",
+    "next": "intro5"
+  }
+]
+
+</script>
+
+  <script src="level.js"></script>
+</body>
+</html>

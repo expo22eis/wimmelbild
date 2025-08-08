@@ -42,7 +42,7 @@
     }
     function triggerBlitz(blitzEl, minDelay = 2000, maxDelay = 4000) {
   const duration = Math.random() * 100 + 80;
-  blitzEl.style.opacity = '1';
+  blitzEl.style.opacity = '0.8';
   setTimeout(() => {
     blitzEl.style.opacity = '0';
   }, duration);
